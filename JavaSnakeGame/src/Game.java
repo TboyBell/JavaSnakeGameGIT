@@ -7,19 +7,19 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 
-public class Game {
-
 	
 	
 	public class GameFrame extends JFrame {
 		
 	GameFrame() {
 		
-		setTitle("Snake");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setResizable(false);
-		pack();
-		setVisible(true);
+		this.add(new GamePanel());
+		this.setTitle("Snake");
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setResizable(false);
+		this.pack();
+		this.setVisible(true);
+		this.setLocationRelativeTo(null);
 		
 		
 	}
@@ -34,7 +34,7 @@ public class Game {
 	
 	
 	
-	public class GamePanel extends JPanel {
+	public class GamePanel extends JPanel implements ActionListener {
 		
 		static final int screenW = 600;
 		static final int screenH = 600;
@@ -53,9 +53,9 @@ public class Game {
 		Random random;
 		GamePanel() {
 			random = new Random();
-			setPreferredSize(new Dimension(screenW,screenH));
-			setBackground(Color.BLACK);
-			setFocusable(true);
+			this.setPreferredSize(new Dimension(SCREEN_WIDTH,SCREEN_HEIGHT));
+			this.setBackground(Color.black);
+			this.setFocusable(true);
 			this.addKeyListener(new MyKeyAdapter());
 			startGame();
 		}
@@ -95,16 +95,19 @@ public class Game {
 	
 	public class MyKeyAdapter extends KeyAdapter {
 		
+		
+		
+		
 	}
 	
 	
 	
 	
+	public class Game {
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
-		new Game().new GameFrame();
-		
+		new GameFrame();
 	}
 
 }
