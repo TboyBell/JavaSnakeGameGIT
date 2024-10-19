@@ -38,6 +38,7 @@ public class GamePanel extends JPanel implements ActionListener {
 		restart.setPreferredSize(new Dimension(200, 50));
 		restart.addActionListener(this);
 
+	
 		// Initially hidden
 		restart.setVisible(false);
 		this.add(restart, BorderLayout.SOUTH);
